@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import API from '../api';
-import GoogleLoginButton from './GoogleLoginButton';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -16,11 +15,6 @@ const RegisterForm = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleLogin = async (token) => {
-    localStorage.setItem('token', token);
-    navigate('/dashboard');
   };
 
   const handleSubmit = async (e) => {
@@ -47,7 +41,6 @@ const RegisterForm = () => {
       <input type="text" name="nationality" placeholder="Nationality" value={formData.nationality} onChange={handleChange} />
       <button type="submit">REGISTER</button>
       {error && <p className="error">{error}</p>}
-      <GoogleLoginButton onLogin={handleLogin} />
       <p className="link-text">Already have an account? <Link to="/">Log in</Link></p>
     </form>
   );
