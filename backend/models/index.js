@@ -3,8 +3,10 @@ import dotenv from 'dotenv';
 import userModel from './user.js';
 import config from '../config/config.js';
 
+
+
 export const sequelize = new Sequelize(config.DATABASE_URL, {
-  dialect: 'postgres',
+  dialect: config.DATABASE_URL.startsWith('postgres') ? 'postgres' : 'sqlite',
   logging: false,
 });
 

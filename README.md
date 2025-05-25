@@ -3,33 +3,37 @@
 
 ## Table of Contents
 
-1. [Project Overview](#project-overview)
-2. [Features](#features)
-3. [Tech Stack](#tech-stack)
-4. [Folder Structure](#folder-structure)
+- [Authentication-Module](#authentication-module)
+    - [© Angelo-Gabriel Barbu - angelo.barbu123@gmail.com - 2025](#-angelo-gabriel-barbu---angelobarbu123gmailcom---2025)
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+  - [Features](#features)
+  - [Tech Stack](#tech-stack)
+  - [Folder Structure](#folder-structure)
     - [Backend](#backend)
     - [Frontend](#frontend)
-5. [Architecture](#architecture)
+  - [Architecture](#architecture)
     - [MVC Pattern](#mvc-pattern)
     - [Role-Based Access Control (RBAC)](#role-based-access-control-rbac)
     - [JWT Authentication](#jwt-authentication)
-6. [Security](#security)
+  - [Security](#security)
     - [Helmet Security Headers](#helmet-security-headers)
     - [Rate Limiting](#rate-limiting)
-7. [Authentication Methods](#authentication-methods)
+  - [Authentication Methods](#authentication-methods)
     - [Email/Password Login](#emailpassword-login)
     - [Google OAuth Integration](#google-oauth-integration)
-8. [Forms & Validation](#forms--validation)
-9. [Admin Dashboard](#admin-dashboard)
-10. [User Dashboard](#user-dashboard)
-11. [Frontend Styling](#frontend-styling)
-12. [Setup Instructions](#setup-instructions)
+  - [Forms \& Validation](#forms--validation)
+  - [Admin Dashboard](#admin-dashboard)
+  - [User Dashboard](#user-dashboard)
+  - [Frontend Styling](#frontend-styling)
+  - [Setup Instructions](#setup-instructions)
     - [Backend Setup](#backend-setup)
     - [Frontend Setup](#frontend-setup)
-13. [Environment Variables](#environment-variables)
-14. [Scripts](#scripts)
-15. [Planned Improvements](#planned-improvements)
-16. [License](#license)
+  - [Environment Variables](#environment-variables)
+  - [Scripts](#scripts)
+  - [Testing](#testing)
+  - [Planned Improvements](#planned-improvements)
+  - [License](#license)
 
 ---
 
@@ -206,6 +210,20 @@ REACT_APP_GOOGLE_CLIENT_ID=<your_google_id>
 - `seedAdmin.js`: Seeds an initial admin user
 ```bash
 node scripts/seedAdmin.js
+```
+
+## Testing
+This repository ships with a zero-config, fully isolated test harness for both the Node/Express backend and the React frontend.
+Follow the steps below (copy-paste friendly) and you will obtain deterministic test runs on any machine or CI runner.
+Testing done using `jest`.
+```bash
+cd frontend/
+npm ci
+npm test
+
+cd backend/
+npm ci
+npm test
 ```
 
 ## Planned Improvements
