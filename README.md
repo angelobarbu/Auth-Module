@@ -32,6 +32,8 @@
   - [Environment Variables](#environment-variables)
   - [Scripts](#scripts)
   - [Testing](#testing)
+  - [Deployment](#deployment)
+    - [How to deploy](#how-to-deploy)
   - [Planned Improvements](#planned-improvements)
   - [License](#license)
 
@@ -226,15 +228,45 @@ npm ci
 npm test
 ```
 
+## Deployment
+This project uses Terraform to declaratively build and orchestrate a full-stack authentication system via Docker containers. It includes:
+* **PostgreSQL** database [`auth-db`]
+* **Node.js** REST API [`auth-api`]
+* **React.js** frontend UI [`auth-ui`]
+
+### How to deploy
+```bash
+cd infra/terraform
+touch terraform.tfvars
+# Example terraform.tfvars
+# postgres_password        = "your_postgres_password"
+# jwt_secret               = "your_jwt_secret"
+# token_expiration_seconds = 3600
+# google_client_id         = "your_google_oauth_client_id"
+
+# Remove node_modules & package-lock.json from backend/ and frontend/
+terraform init
+terraform apply
+
+# Stopping the containers
+terraform destroy
+```
+Terraform will:
+* Build docker images for the backend and frontend
+* Pull the official PostgreSQL image
+* Create a shared Docker network [`auth-network`]
+* Start containers for the database, API and UI
+
 ## Planned Improvements
 
+- Better handling for the refresh token
 - Email confirmation after registration
 - Forgot password flow
 - 2FA (Two-Factor Authentication)
 - Dark mode UI theme
-- Deployment strategy
+- Better beployment strategy
 - Low-level & high-level architecture diagrams
-- Unit tests & e2e testing
+- Better unit tests & e2e testing
 - UI refinement overall
 
 ## License

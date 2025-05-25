@@ -1,5 +1,5 @@
-import { sequelize, User } from '../../models/index.js';
-import { hashPassword } from '../../utils/password.js';
+import { sequelize, User } from '../models/index.js';
+import { hashPassword } from '../utils/password.js';
 
 const seedAdmin = async () => {
   await sequelize.sync();
