@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../api';
 import GoogleLoginButton from './GoogleLoginButton';
+import DecentralisedIdentityLoginButton from './DecentralisedIdentityLoginButton';
 
 const LoginForm = ({ onLogin }) => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -28,7 +29,10 @@ const LoginForm = ({ onLogin }) => {
       <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
       <button type="submit">LOGIN</button>
       {error && <p className="error">{error}</p>}
-      <GoogleLoginButton onLogin={onLogin} />
+      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <GoogleLoginButton onLogin={onLogin} />
+        <DecentralisedIdentityLoginButton onLogin={onLogin} />
+      </div>
       <p className="link-text">Don't have an account? <Link to="/register">Sign up</Link></p>
     </form>
   );

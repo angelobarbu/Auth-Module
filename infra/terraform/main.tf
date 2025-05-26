@@ -61,7 +61,7 @@ resource "docker_container" "api" {
   }
   ports {
     internal = 5001
-    external = 5001
+    external = 5003
   }
 }
 

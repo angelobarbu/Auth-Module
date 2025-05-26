@@ -3,6 +3,7 @@ import { body } from 'express-validator';
 import { register, login, updateUser, setPassword, deleteOwnAccount } from '../controllers/authController.js';
 import { authenticateToken } from '../middlewares/authMiddleware.js';
 import { googleAuth } from '../controllers/googleAuthController.js';
+import { digitalIdAuth } from '../controllers/digitalIdAuthController.js';
 
 const router = express.Router();
 
@@ -19,6 +20,8 @@ router.post('/login', [
 ], login);
 
 router.post('/auth/google', googleAuth);
+
+router.post('/auth/did', digitalIdAuth);
 
 router.get('/protected', authenticateToken, (req, res) => {
   res.json({ message: `Access granted. Hello, ${req.user.full_name}!`, user: req.user });

@@ -212,4 +212,16 @@ body {
     border: 1px solid #ccc;
     font-size: 1rem;
     background-color: white;
-  }
+}
+
+.digital-id-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #888;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.digital-id-btn:hover {
+  background: #f3f3f3;
+}
